@@ -1,0 +1,29 @@
+<div class="container">
+  <%= form_with(model: @post, url: posts_path, method: 'post', local: true) do |f| %>
+    <div>
+      <%= f.label :name, '名前' %>
+    </div>
+    <div>
+      <%= f.text_field :name%>
+    </div>
+    <div>
+      <%= f.label :text, '内容' %>
+    </div>
+    <div>
+      <%= f.text_area :text %>
+    </div>
+    <div>
+      <%= f.label :prefecture_id, '都道府県' %>
+    </div>
+    <div>
+      <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"} %>
+    </div>
+    <div>
+      <%= f.label :category_id, 'カテゴリ' %>
+    </div>
+    <div>
+      <%= f.collection_select :category_id, Category.all, :id, :category, {include_blank: "---"} %>
+    </div>
+    <%= f.submit '保存' %>
+  <% end %>
+</div>

@@ -1,0 +1,21 @@
+<h1>検索結果</h1>
+
+<% @posts.each do |post| %>
+  <div>
+    <%= label :name, '名前:' %>
+    <%= post.name %>
+  </div>
+  <div>
+    <%= label :text, '詳細:' %>
+    <%= post.text %>
+  </div>
+  <div>
+    <%= label :prefecture_id, 'エリア' %>
+    <%= post.prefecture.name %>
+  </div>
+  <div>
+    <%= label :category_id, 'カテゴリ' %>
+    <%= post.category.name %>
+  </div>
+<% end %>
+<%= link_to 'トップ', root_path %>
