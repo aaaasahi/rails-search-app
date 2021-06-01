@@ -1,2 +1,2 @@
 ## rails
-active hash + ransack　検索アプリ 
+active hash + ransack　カテゴリ投稿、検索アプリ 
