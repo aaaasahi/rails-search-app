@@ -1,5 +1,5 @@
 <div class="container">
-  <%= form_with(model: @post, url: posts_path, method: 'post', local: true) do |f| %>
+  <%= form_with(model: [@tag, @post], url: posts_path, method: 'post', local: true) do |f| %>
     <div>
       <%= f.label :name, '名前' %>
     </div>
@@ -13,6 +13,12 @@
       <%= f.text_area :text %>
     </div>
     <div>
+      <%= f.label :name, 'タグ' %>
+    </div>
+    <div>
+      <%= f.text_field :tag_name %>
+    </div>
+    <div>
       <%= f.label :prefecture_id, '都道府県' %>
     </div>
     <div>
@@ -22,7 +28,7 @@
       <%= f.label :category_id, 'カテゴリ' %>
     </div>
     <div>
-      <%= f.collection_select :category_id, Category.all, :id, :category, {include_blank: "---"} %>
+      <%= f.collection_select :category_id, Category.all, :id, :name, {include_blank: "---"} %>
     </div>
     <%= f.submit '保存' %>
   <% end %>
