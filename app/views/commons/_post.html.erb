@@ -1,12 +1,4 @@
-<h1>検索</h1>
-
-<%= render 'search_form'  %>
-
-<% @tag_lists.each do |list| %>
-    <%= link_to list.tag_name, tag_path(tag_id: list.id) %>
-<% end %>
-
-<% @posts.each do |post| %>
+<% posts.each do |post| %>
   <div>
     <%= label :name, '名前:' %>
     <%= post.name %>
@@ -23,8 +15,4 @@
     <%= label :category_id, 'カテゴリ' %>
     <%= post.category.name %>
   </div>
-  <%= link_to '詳細', post_path(post) %>
 <% end %>
-
-
-
